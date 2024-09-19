@@ -13,7 +13,7 @@ import time
 def user_created_signal(sender, instance, created, **kwargs):
     if created:
         print("Signal handler started")
-        time.sleep(3)  # Simulate a time-consuming task
+        time.sleep(3) 
         print("Signal handler completed")
 
 # views.py
@@ -85,3 +85,27 @@ def create_user_view(request):
   return HttpResponse("User creation succeeded.")
 
 ```
+Description: You are tasked with creating a Rectangle class with the following requirements:
+
+1. An instance of the Rectangle class requires length:int and width:int to be initialized.
+2. We can iterate over an instance of the Rectangle class 
+3. When an instance of the Rectangle class is iterated over, we first get its length in the format: {'length': <VALUE_OF_LENGTH>} followed by the width {width: <VALUE_OF_WIDTH>}
+
+```
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def __iter__(self):
+        yield {"length": self.length}
+        yield {"width": self.width}
+
+# Usage
+rect = Rectangle(7, 4)
+
+for dimension in rect:
+    print(dimension)
+```
+
+
